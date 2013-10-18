@@ -8,5 +8,8 @@
                   stdlib
                  ]},
   {mod, { connection_register_app, []}},
-  {env, []}
+  {env, [
+      {nodes, ['node1@localhost', 'node2@localhost']},
+      {port, 8888}
+  ]}
  ]}.
