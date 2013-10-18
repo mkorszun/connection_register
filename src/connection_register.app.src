@@ -1,0 +1,12 @@
+{application, connection_register,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { connection_register_app, []}},
+  {env, []}
+ ]}.
