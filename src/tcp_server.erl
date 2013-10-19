@@ -23,10 +23,13 @@ start_link() ->
 %% Gen_server callbacks
 %% ===================================================================
 
-%% Create listening socket and starts accept loop
+%% Create listening socket and start accept loop
 init(_) ->
     {ok, Port} = application:get_env(connection_register, port),
-    {ok, ListenSocket} = gen_tcp:listen(Port, [{active, true}, {packet, 0}, binary]),
+    {ok, ListenSocket} = gen_tcp:listen(Port, [{active, true},
+                                               {packet, 0},
+                                               {reuseaddr, true},
+                                               binary]),
     erlang:send_after(0, self(), accept),
     {ok, #state{listen_socket = ListenSocket}}.
 

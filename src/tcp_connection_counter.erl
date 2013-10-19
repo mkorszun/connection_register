@@ -17,7 +17,7 @@
 %% @doc Sets up mnesia cluster on given nodes
 init(Nodes) ->
     mnesia:change_config(extra_db_nodes, Nodes),
-    mnesia:create_table(conn, [{attributes, record_info(fields, conn)}]).
+    mnesia:create_table(conn, [{attributes, record_info(fields, conn)}, {ram_copies, Nodes}]).
 
 %% @doc Store in mnesia cluster connection attributes identified by given process
 add(Pid, Address, Port) ->
