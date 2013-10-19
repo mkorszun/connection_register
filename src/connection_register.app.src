@@ -1,15 +1,9 @@
 {application, connection_register,
  [
-  {description, ""},
+  {description, "Connection register"},
   {vsn, "1"},
   {registered, []},
-  {applications, [
-                  kernel,
-                  stdlib
-                 ]},
-  {mod, { connection_register_app, []}},
-  {env, [
-      {nodes, ['node1@localhost', 'node2@localhost']},
-      {port, 8888}
-  ]}
+  {applications, [kernel, stdlib]},
+  {mod, {connection_register_app, []}},
+  {env, [{nodes, ['node1@localhost', 'node2@localhost']}, {conntact_node, 'node1@localhost'}]}
  ]}.

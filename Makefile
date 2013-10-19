@@ -100,4 +100,4 @@ distclean: clean
 rebuild: distclean deps compile escript dialyzer test
 
 run:
-	erl -pa ebin -sname ${NODE}@localhost -setcookie connection_register -s connection_register
+	erl -pa ebin -sname ${NODE}@localhost -setcookie connection_register -s connection_register -connection_register port ${PORT}
